@@ -83,6 +83,7 @@
 			</div>
 		</div>
 		<div class="popup">
+			<div class="overlay"></div>
 			<div class="popup-wrap">
 				<h1>Chest Workouts</h1>
 			</div>
@@ -116,13 +117,9 @@
 					
 				});
 
-				$(".popup").click(function(e) {
-					if ($(e.target).is(".popup-wrap")) {
-						e.stopPropogation();
-					} else {
-						$(".popup-wrap").delay(500).transition({ scale: 0.9 }, 250).transition({ scale: 1.2 }).transition({ scale: 0});
-						$(".popup").delay(1000).transition({ opacity: 0, 'pointer-events': 'none'});
-					}
+				$(".overlay").click(function(e) {
+					$(".popup-wrap").delay(500).transition({ scale: 0.9 }, 250).transition({ scale: 1.2 }).transition({ scale: 0});
+					$(".popup").delay(1000).transition({ opacity: 0, 'pointer-events': 'none'});
 				})
 			});
 
