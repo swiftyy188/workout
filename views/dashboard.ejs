@@ -54,8 +54,8 @@
 							<a href="#">Energy</a>
 						</div>
 						<div class="tabs seven">
-							<a href="#">Shoulders
-							<a href="#">Chest</a>
+							<a href="#" class="goto" data-index=".item1">Shoulders
+							<a href="#" class="goto" data-index=".item2">Chest</a>
 							<a href="#">Triceps and Biceps</a>
 							<a href="#">Legs</a>
 							<a href="#">Back</a>
@@ -63,20 +63,69 @@
 							<a href="#">Rest</a>
 						</div>
 						<div class="routine">
-							<div class="routine-item">
-								<p></p>
-							</div><br>
-							<div class="add-item">
-								Chest completed Mon Oct 07 2016 | points: 50
-								Triceps completed Tue Oct 08 2016 | points 50
+							<div class="items">
+								<div class="item item1">
+									<p>Chest completed Mon Oct 07 2016 | points: 50</p>
+									<p>Chest completed Mon Oct 07 2016 | points: 50</p>
+									<p>Chest completed Mon Oct 07 2016 | points: 50</p>
+									<p>Chest completed Mon Oct 07 2016 | points: 50</p>
+								</div>
+								<div class="item item2">
+									<p>Triceps completed Mon Oct 07 2016 | points: 50</p>
+									<p>Triceps completed Mon Oct 07 2016 | points: 50</p>
+									<p>Triceps completed Mon Oct 07 2016 | points: 50</p>
+									<p>Triceps completed Mon Oct 07 2016 | points: 50</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="popup">
+			<div class="popup-wrap">
+				<h1>Chest Workouts</h1>
+			</div>
+		</div>
+		<script src="/jquery.js"></script>
+		<script src="/jquery.transit.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
 		<script>
+
+			$(document).ready(function() {
+				$("h1").hover(
+					function() {
+						$(this).transition({ scale: 1.2 });
+					}, 
+					function() {
+						$(this).transition({ scale: 1 });
+					}
+				)
+
+				var currentIndex = ".item1";
+
+				$(".goto").click(function() {
+					var itemClass = $(this).attr('data-index');
+					if (itemClass !== currentIndex) {
+						$(".item").transition({ scale: 0 }, 500);
+						$(itemClass).delay(500).transition({ scale: 1 });
+						currentIndex = itemClass;
+						$(".popup").transition({ opacity: 1, 'pointer-events': 'visible'}, 500);
+						$(".popup-wrap").delay(500).transition({ scale: 1.2 }, 250).transition({ scale: 0.9 }).transition({ scale: 1});
+					}
+					
+				});
+
+				$(".popup").click(function(e) {
+					if ($(e.target).is(".popup-wrap")) {
+						e.stopPropogation();
+					} else {
+						$(".popup-wrap").delay(500).transition({ scale: 0.9 }, 250).transition({ scale: 1.2 }).transition({ scale: 0});
+						$(".popup").delay(1000).transition({ opacity: 0, 'pointer-events': 'none'});
+					}
+				})
+			});
+
 			var ctx = document.getElementById('chart');
 
 			var data = {
