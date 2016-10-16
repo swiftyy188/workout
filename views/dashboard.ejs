@@ -54,7 +54,7 @@
 							<a href="#">Energy</a>
 						</div>
 						<div class="tabs seven">
-							<a href="#" class="goto" data-index=".item1">Shoulders
+							<a href="#" class="goto" data-index=".item1">Shoulders</a>
 							<a href="#" class="goto" data-index=".item2">Chest</a>
 							<a href="#">Triceps and Biceps</a>
 							<a href="#">Legs</a>
@@ -113,6 +113,11 @@
 						currentIndex = itemClass;
 						$(".popup").transition({ opacity: 1, 'pointer-events': 'visible'}, 500);
 						$(".popup-wrap").delay(500).transition({ scale: 1.2 }, 250).transition({ scale: 0.9 }).transition({ scale: 1});
+						if (currentIndex === ".item1") {
+							$(".popup-wrap h1").text('Shoulders')
+						} else {
+							$(".popup-wrap h1").text('Chest')
+						}
 					}
 					
 				});
