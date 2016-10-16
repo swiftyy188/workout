@@ -1,0 +1,133 @@
+body {
+	font-family: Arial;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0px;
+}
+
+input, textarea, button {
+	font-family: inherit;
+}
+
+.header {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 50px;
+	background: black;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.header h1 {
+	font-size: 18px;
+	padding: 0px 15px;
+}
+
+div.content {
+	padding-top: 50px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+div.column {
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 15px);
+	margin: 7.5px;
+}
+
+div.panel {
+	width: calc(100% - 15px);
+	padding: 15px;
+	margin: 7.5px;
+	box-shadow: 0px 0px 30px #cbcbcb;
+	border-radius: 5px;
+	height: 200px;
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+div.column.quarter {
+	width: calc(25% - 15px);
+}
+
+div.column.half {
+	width: calc(50% - 15px);
+}
+
+div.column.three-quarter {
+	width: calc(75% - 15px);
+}
+
+div.panel.half-height {
+	height: 92.5px;
+}
+
+div.panel.center {
+	align-items: center;
+	justify-content: center;
+}
+
+div.panel h1 {
+	font-size: 18px;
+	text-align: center;
+}
+
+div.panel div.rankings p {
+	text-align: center;
+	padding: 15px;
+}
+
+div.panel h1.big {
+	font-size: 48px;
+}
+
+div.panel canvas {
+	width: 100%;
+}
+
+div.panel div.tabs {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+div.tabs a {
+	width: calc(20% - 10px);
+	padding: 2.5px;
+	margin: 0px 5px;
+	border-radius: 5px 5px 0px 0px;
+	background: #cbcbcb;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+div.tabs a.tab-header {
+	background: none;
+	color: black;
+	font-size: 18px;
+}
+
+div.tabs.seven a {
+	width: calc(100% / 7 - 10px);
+	font-size: 10px;
+}

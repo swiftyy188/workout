@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dash Board</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="/app.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Workout App</h1>
+			</div>
+			<div class="content">
+				<div class="column three-quarter">
+					<div class="panel">
+						<h1>Your life balance</h1>
+						<canvas id="chart" height="60"></canvas>
+					</div>
+				</div>
+				<div class="column quarter">
+					<div class="panel half-height">
+						<h1>Rankings</h1>
+						<div class="rankings">
+							<p><a href="#">#1 Jeff Ho</a>| 300pts</p>
+							<p><a href="#">#2 Jeff Ho</a>| 300pts</p>
+							<p><a href="#">#3 Jeff Ho</a>| 300pts</p>
+							<p><a href="#">#4 Jeff Ho</a>| 300pts</p>
+							<p><a href="#">#5 Jeff Ho</a>| 300pts</p>
+						</div>
+					</div>
+					<div class="panel quarter half-height center">
+						<h1>Calories Burned</h1>
+						<h1 class="big">9001</h1>
+					</div>
+				</div>
+				<div class="column half">
+					<div class="panel">
+						<div class="tabs">
+							<a class="tab-header" href="#">Goals</a>
+							<a href="#">Weights</a>
+							<a href="#">Cardio</a>
+							<a href="#">Nutrition</a>
+							<a href="#">Energy</a>
+						</div>
+					</div>
+				</div>
+				<div class="column half">
+					<div class="panel">
+						<div class="tabs">
+							<a class="tab-header" href="#">Routine</a>
+							<a href="#">Weights</a>
+							<a href="#">Cardio</a>
+							<a href="#">Nutrition</a>
+							<a href="#">Energy</a>
+						</div>
+						<div class="tabs seven">
+							<a href="#">Shoulders
+							<a href="#">Chest</a>
+							<a href="#">Triceps and Biceps</a>
+							<a href="#">Legs</a>
+							<a href="#">Back</a>
+							<a href="#">Calves</a>
+							<a href="#">Rest</a>
+						</div>
+						<div class="routine">
+							<div class="routine-item">
+								<p></p>
+							</div><br>
+							<div class="add-item">
+								Chest completed Mon Oct 07 2016 | points: 50
+								Triceps completed Tue Oct 08 2016 | points 50
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+		<script>
+			var ctx = document.getElementById('chart');
+
+			var data = {
+			    labels: ["Weights", "Cardio", "Nutrition", "Energy"],
+			    datasets: [
+			        {
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			            ],
+			            data: [65, 59, 80, 81],
+			        }
+			    ]
+			};
+
+			new Chart(ctx, {
+			    type: "bar",
+			    data: data,
+			    options: {
+			    	legend: false,
+			        scales: {
+			            xAxes: [{
+			                stacked: true
+			            }],
+			            yAxes: [{
+			                stacked: true
+			            }]
+			        }
+			    }
+			});
+		</script>
+	</body>
+</html>
